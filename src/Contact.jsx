@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import bg from './img/bg.jpg';
 
-export default function FirstPage() {
+export default function Contact() {
   return (
   <Box
       height={{ xs: '100%', sm: '100%', md: '100%' }} 
@@ -53,14 +53,14 @@ export default function FirstPage() {
       }} 
          color="text.secondary" 
          gutterBottom>
-           Question about your thoughts on the media, specifically in relation to a social media company's
+           You can send a message to us on WhatsApp and X(twitter)
        </Typography>
 
-       <Button 
+         <Button 
        component={Link}
-        to="/login" 
+        to="https://twitter.com/TvAfric47294" 
        sx={{
-        backgroundColor: 'darkgreen',
+        backgroundColor: 'darkblue',
         color:'white',
         display: 'flex', 
         justifyContent: 'center', 
@@ -71,7 +71,25 @@ export default function FirstPage() {
         borderRadius: '15px',
         marginTop:'2%'
        }}
-       >Continue</Button>
+       >X(twitter)</Button>
+
+       <Button 
+       component={Link}
+        to="https://wa.link/x37ly1" 
+       sx={{
+        backgroundColor: 'green',
+        color:'white',
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        margin: 'auto',
+        height:'8vh',
+        width:"200px",
+        borderRadius: '15px',
+        marginTop:'2%'
+       }}
+       >WhatsApp</Button>
+      
         <Button 
         component={Link}
         to="/about-us" 
@@ -90,18 +108,7 @@ export default function FirstPage() {
        }}
        >About AfricTv</Button>
       </Box>
-      <Typography 
-        sx={{
-        fontSize: 15,
-        textAlign: 'center',
-        borderRadius: '5px',
-        color:'red',
-        marginTop:'2%'
-      }} 
-         color="text.secondary" 
-         gutterBottom>
-          All right Reserved | Afric ICL
-       </Typography>
+     
   </Box>
 
 

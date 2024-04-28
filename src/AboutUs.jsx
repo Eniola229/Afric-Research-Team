@@ -4,7 +4,7 @@ import logo from './img/AfricTv.png';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-
+import abbg from './img/abbg.jpg';
 
 export default function AboutUs() {
   return (
@@ -17,7 +17,12 @@ export default function AboutUs() {
       justifyContent="center" 
       gap={4}
       p={2}
-      sx={{ margin: 'auto', }}
+       sx={{
+          backgroundImage: `url(${abbg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          margin: 'auto', 
+      }}
     >
     <Box 
     sx={{
@@ -34,7 +39,8 @@ export default function AboutUs() {
         style={{ 
           width: '50%', 
           marginTop:'7%',
-         borderRadius: '50%' }}
+         borderRadius: '50%',
+         backgroundColor: 'white' }}
       />
     </div>
 
@@ -42,9 +48,10 @@ export default function AboutUs() {
         sx={{
         fontSize: 18,
         textAlign: 'center',
-        backgroundColor: 'white',
+        backgroundColor: '',
         borderRadius: '5px',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color:'white'
       }} 
          color="text.secondary" 
          gutterBottom>
@@ -73,6 +80,20 @@ export default function AboutUs() {
        }}
        >Home</Button>
       </Box>
+
+      <Typography 
+        sx={{
+        fontSize: 15,
+        textAlign: 'center',
+        borderRadius: '5px',
+        fontWeight: 'bold',
+        marginTop: '5%',
+        color:'white'
+      }} 
+         color="text.secondary" 
+         gutterBottom>
+          All right Reserved | Afric ICL
+       </Typography>
      
   </Box>
 
