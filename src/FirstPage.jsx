@@ -10,6 +10,9 @@ import Header from "./componenets/Header";
 import TextField from '@mui/material/TextField';
 import AboutUs from './componenets/AboutUs';
 import ResearchCat from './componenets/ResearchCat';
+import OurTeam from './componenets/OurTeam';
+import Desk from './componenets/Desk';
+import Footer from './componenets/Footer';
 
 export default function FirstPage() {
   return (
@@ -53,7 +56,6 @@ export default function FirstPage() {
         justifyContent: 'center',
         alignItems: 'center',    
         height: '100vh',          
-        
       }}
     >
       <Typography
@@ -84,7 +86,7 @@ export default function FirstPage() {
       </Typography>
       <Button 
        component={Link}
-        to="/questions" 
+        to="/login" 
         sx={{
           backgroundColor:'transparent',
           color: 'white',
@@ -157,6 +159,9 @@ export default function FirstPage() {
     </Box>
     <ResearchCat />
     <AboutUs/>
+    <OurTeam/>
+    <Desk/>
+    <Footer/>
 
   </Box>
 
