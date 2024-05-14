@@ -10,7 +10,16 @@ import { GoogleAuthProvider, signInWithPopup, sendEmailVerification, onAuthState
 import { auth, messaging } from './Auth/Firebase';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";    
+import { db } from "./Auth/Firebase";
+import { addDoc } from 'firebase/firestore';
+import { collection } from 'firebase/firestore';
+import { serverTimestamp } from 'firebase/firestore';
+
+
+const initialState = {
+  why: "",
+}
 
 
 export default function Why() {
@@ -18,7 +27,11 @@ export default function Why() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userData, setUserData] = useState({});
     const [isLoading, setIsLoading] = useState(true); 
+    const [errors, setErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
     const navigate = useNavigate();
+    const [data, setData] = useState(initialState);
+    const { why } = data;
 
 
      useEffect(() => {
@@ -56,6 +69,28 @@ export default function Why() {
       });
   };
 
+   const handleChange= (e) => {
+    setData({...data, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    setIsSubmit(true);
+    await addDoc(collection(db, "why"), {
+      ...data,
+      timestamp: serverTimestamp()
+    })
+
+   {/*This show if post is succesfully*/}
+        Swal.fire({
+          title: 'Thank you for your response!',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+         navigate("/questions");
+  }
+
 
   return (
   <Box
@@ -75,6 +110,7 @@ export default function Why() {
           margin: 'auto', 
       }}
     >
+     <form  onSubmit={handleSubmit}>
      <Box 
         sx={{
           justifyContent: 'center', 
@@ -107,6 +143,9 @@ export default function Why() {
             label="Kindly Fill this Field"
             multiline
             rows={4}
+            name="why"
+            value={why}
+            onChange={handleChange}
             helperText="You Click Skip Why?"
             sx={{
               width: '100%',
@@ -116,8 +155,7 @@ export default function Why() {
 
   
         <Button 
-          component={Link}
-          to="/why" 
+          type="submit"
           sx={{
             backgroundColor: 'darkgreen',
             color: 'white',
@@ -151,6 +189,7 @@ export default function Why() {
           Subscribe
         </Button>
    </Box>
+   </form>
   </Box>
 
 

@@ -8,14 +8,14 @@ import subbg from './img/subbg.jpg';
 import Swal from 'sweetalert2';
 import { GoogleAuthProvider, signInWithPopup, sendEmailVerification, onAuthStateChanged, signOut} from 'firebase/auth';
 import { auth, messaging } from './Auth/Firebase';
-
+import {useParams, useNavigate} from "react-router-dom";  
 
 export default function Login() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userData, setUserData] = useState({});
     const [isLoading, setIsLoading] = useState(true); 
-
+    const navigate = useNavigate();
 
 
      useEffect(() => {
@@ -45,6 +45,7 @@ export default function Login() {
         sendEmailVerification(result.user);
         setIsLoggedIn(true);
         setIsLoading(false); 
+        navigate("/questions");
       })
       .catch((error) => {
         console.log({ error });

@@ -39,7 +39,7 @@ export default function Sidenav() {
     <Box
       sx={{
         width: drawerWidth,
-        background: "linear-gradient(90deg, rgba(19, 65, 0, 1) 0%, rgba(0, 97, 6, 1) 50%, rgba(0, 151, 1, 1) 100%)",
+         background: "linear-gradient(90deg, rgba(4, 43, 0, 1) 1%, rgba(1, 70, 0, 1) 49%, rgba(0, 193, 1, 1) 100%)",
         color: 'white',
         height: '100vh',
         display: 'flex',
@@ -63,6 +63,18 @@ export default function Sidenav() {
     </Typography>
   </ListItemButton>
 </ListItem>
+
+  <ListItem disablePadding>
+    <ListItemButton to="/questions" style={{ textDecoration: 'none', color: 'white', fontSize: '30px', display: 'inline-block', margin: '10px' }}>
+      <ListItemIcon>
+        <InfoIcon />
+      </ListItemIcon>
+       <Typography sx={{fontSize:"18px", fontWeight:"bolder"}}>
+      Questions
+      </Typography>
+    </ListItemButton>
+  </ListItem>
+
 
   <ListItem disablePadding>
     <ListItemButton to="/about-us" style={{ textDecoration: 'none', color: 'white', fontSize: '30px', display: 'inline-block', margin: '10px' }}>
@@ -92,7 +104,7 @@ export default function Sidenav() {
       {['top'].map((anchor) => (
         <React.Fragment key={anchor}>
           <IconButton onClick={toggleDrawer(anchor, true)}>
-            <MenuIcon sx={{ color: 'red' }} />
+            <MenuIcon sx={{ color: 'white'  }} />
           </IconButton>
           <Drawer
             anchor={anchor}

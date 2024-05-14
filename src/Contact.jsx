@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import bg from './img/bg.jpg';
+import Swal from 'sweetalert2';
 
 export default function Contact() {
   return (

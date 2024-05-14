@@ -16,6 +16,7 @@ import Avatar from '@mui/material/Avatar';
 import { useMediaQuery, useTheme } from '@mui/material';
 import Swal from 'sweetalert2';
 import SideNav from './SideNav';
+import {useParams, useNavigate} from "react-router-dom";    
 
 
 export default function Header() {
@@ -29,6 +30,7 @@ export default function Header() {
   const [userData, setUserData] = useState({});
   const [isLoading, setIsLoading] = useState(true); 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate();
 
 
 
@@ -95,6 +97,7 @@ export default function Header() {
         setUserData({});
         setIsLoggedIn(false);
         setIsLoading(false); 
+        navigate("/");
       })
       .catch((error) => {
         console.log({ error });
@@ -108,22 +111,18 @@ export default function Header() {
   return (
     <>
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ background: 'transparent', boxShadow: 'none', color: 'white' }}>
+      <AppBar position="fixed" sx={{ background: 'transparent', boxShadow: 'none', color: 'white' }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <SideNav />
-          </IconButton>
-          <Typography  sx={{ flexGrow: 1, fontWeight: "bold", fontSize: isMobile ? '0.8rem': '1.3rem', }}>
+          
+          <Typography  sx={{ flexGrow: 1, fontWeight: "bold", fontSize: isMobile ? '1.2rem': '1.7rem', }}>
             Afric Research Team
           </Typography> 
 
-      {isLoggedIn ? ( // If user is authenticated, show logout button
+
+
+
+         
+      {/*{isLoggedIn ? ( // If user is authenticated, show logout button
           <>
         <Button
           variant="contained"
@@ -138,7 +137,7 @@ export default function Header() {
         >
           {isLoggedIn ? 'Logout' : 'Logging out...'}
         </Button>
-         <Avatar alt="" src={userData.photoURL} />
+         <Avatar alt="profile pics" src={userData.photoURL} />
         </>
 
       ) : ( 
@@ -153,7 +152,20 @@ export default function Header() {
         >
           Subscribe
         </Button>
-      )}
+      )}*/}
+
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{
+             mr: 2,
+             
+            }}
+          >
+            <SideNav />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box> 

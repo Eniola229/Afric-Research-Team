@@ -80,14 +80,14 @@ const initialState = {
   qu15f2: "",
   qu15f3: "",
   qu15f4: "",
+
+  userEmail: "",
+  userName: "",
+  otherThoughts: "",
 }
 
 
-
-                  
-                  
-
-export default function Question() {
+    export default function Question() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [errors, setErrors] = useState({});
@@ -156,7 +156,11 @@ export default function Question() {
   qu15f1,
   qu15f2,
   qu15f3,
-  qu15f4
+  qu15f4,
+
+  userEmail,
+  userName,
+  otherThoughts
           } = data;
 
 
@@ -185,7 +189,7 @@ export default function Question() {
     e.preventDefault();
 
     setIsSubmit(true);
-    await addDoc(collection(db, "research_data_v1.0.0"), {
+    await addDoc(collection(db, "research_data_v2.0.0"), {
       ...data,
       timestamp: serverTimestamp()
     })
@@ -218,8 +222,9 @@ export default function Question() {
     >
     <Header/>
 
-
+    
      <form  onSubmit={handleSubmit}>
+     
      <Box 
         sx={{
           justifyContent: 'center', 
@@ -243,15 +248,32 @@ export default function Question() {
       }} 
          color="text.secondary" 
          gutterBottom>
-        1. What type of content would you like to see more on social media app's?
+        1. What would make Social Media app's easier to use?
        </Typography>
      
          <FormGroup>
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Leatest Updates" name="qu1f1" onChange={handleChange} label="Leatest Updates" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox sx={{ color: 'white' }} />} value="Comedy" name="qu1f2" onChange={handleChange}  label="Comedy" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Movies and Music" name="qu1f3" onChange={handleChange} label="Movies and Music" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="All of the Above" name="qu1f4" onChange={handleChange} label="All of the Above" />
-        </FormGroup>   
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value=" Simpler navigation" name="qu1f1" onChange={handleChange} label=" Simpler navigation" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox sx={{ color: 'white' }} />} value="A personalized home page" name="qu1f2" onChange={handleChange}  label="A personalized home page" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Better search functionality" name="qu1f3" onChange={handleChange} label="Better search functionality" />
+             <Typography sx={{color: 'white',}}>
+              Something else (tell us!)
+            </Typography>
+            </FormGroup>   
+        <TextField
+            id="outlined-helperText"
+            label="Kindly Write it here"
+            multiline
+            rows={4}
+            name="qu1f4"
+            value={qu1f4}
+            onChange={handleChange}
+            sx={{
+              width: '100%',
+              marginTop: '3%',
+              border: '1px solid white',
+              color:'white'
+            }}
+          />
    </Box>
 
     <Box 
@@ -277,15 +299,31 @@ export default function Question() {
       }} 
          color="text.secondary" 
          gutterBottom>
-        2. Would you like to have a feature to react to videos with emotions?
+        2. How easy is it to navigate the current Social Media app's you are using now?
        </Typography>
      
          <FormGroup>
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Yes" name="qu2f1" onChange={handleChange} label="Yes" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox sx={{ color: 'white' }} />} value="No" name="qu2f2" onChange={handleChange} label="No" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Maybe" name="qu2f3" onChange={handleChange} label="Maybe" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} label="Not Sure" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Very easy" name="qu2f1" onChange={handleChange} label="Very easy" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox sx={{ color: 'white' }} />} value="A bit difficult, but I can manage" name="qu2f2" onChange={handleChange} label="A bit difficult, but I can manage" />
+            <Typography sx={{color: 'white',}}>
+              Something else (tell us!)
+            </Typography>
         </FormGroup>   
+         <TextField
+            id="outlined-helperText"
+            label="Kindly Write it here"
+            multiline
+            rows={4}
+            name="qu2f3"
+            value={qu2f3}
+            onChange={handleChange}
+            sx={{
+              width: '100%',
+              marginTop: '3%',
+              border: '1px solid white',
+              color:'white'
+            }}
+          />
    </Box>
 
     <Box 
@@ -311,15 +349,32 @@ export default function Question() {
       }} 
          color="text.secondary" 
          gutterBottom>
-        3. How would you like to discover new content on the Social Media app?
+        3. What device do you use to access the current Social Media app?
        </Typography>
      
          <FormGroup>
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Hashtags" name="qu3f1" onChange={handleChange} label="Hashtags" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox sx={{ color: 'white' }} />} value="Algorithmic feed" name="qu3f2" onChange={handleChange} label="Algorithmic feed" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Friends'recommendations" name="qu3f3" onChange={handleChange} label="Friends'recommendations" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="All of the above" name="qu2f4" onChange={handleChange} label="All of the above" />
-        </FormGroup>   
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Smartphone (iPhone or Android)" name="qu3f1" onChange={handleChange} label="Smartphone (iPhone or Android)" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox sx={{ color: 'white' }} />} value="Tablet (iPad or Android)" name="qu3f2" onChange={handleChange} label="Tablet (iPad or Android)" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Computer (Windows or Mac)" name="qu3f3" onChange={handleChange} label="Computer (Windows or Mac)" />
+            <Typography sx={{color: 'white',}}>
+              Something else (tell us!)
+            </Typography>
+        </FormGroup>  
+        <TextField
+            id="outlined-helperText"
+            label="Kindly Write it here"
+            multiline
+            rows={4}
+            name="qu3f4"
+            value={qu3f4}
+            onChange={handleChange}
+            sx={{
+              width: '100%',
+              marginTop: '3%',
+              border: '1px solid white',
+              color:'white'
+            }}
+          /> 
    </Box>
 
      <Box 
@@ -345,14 +400,14 @@ export default function Question() {
       }} 
          color="text.secondary" 
          gutterBottom>
-        4. How would you like to earn rewards and prizes on the Social Media app's?
+        4. How important is sharing videos to other social media?
        </Typography>
      
          <FormGroup>
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="By creating popular content" name="qu4f1" onChange={handleChange} label="By creating popular content" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox sx={{ color: 'white' }} />} value="By participating in challenges" name="qu4f2" onChange={handleChange} label="By participating in challenges" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="By referring friends" name="qu4f3" onChange={handleChange} label="By referring friends" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="All of the above" name="qu4f4" onChange={handleChange} label="All of the above" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Very important" name="qu4f1" onChange={handleChange} label="Very important" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox sx={{ color: 'white' }} />} value=" Somewhat important" name="qu4f2" onChange={handleChange} label=" Somewhat important" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value=" Not very important" name="qu4f3" onChange={handleChange} label=" Not very important" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value=" Not at all important" name="qu4f4" onChange={handleChange} label=" Not at all important" />
         </FormGroup>   
    </Box>
 
@@ -379,7 +434,7 @@ export default function Question() {
       }} 
          color="text.secondary" 
          gutterBottom>
-        5. Would you want to see a live streaming feature? (Yes/No)
+        5. Would you like to see live streams and interactive features?
        </Typography>
      
          <FormGroup>
@@ -410,7 +465,7 @@ export default function Question() {
       }} 
          color="text.secondary" 
          gutterBottom>
-        6. Would you like to see a feature to share videos on other social media platforms? (Yes/No)
+        6. Would you like a special section for popular challenges?
        </Typography>
      
          <FormGroup>
@@ -601,15 +656,32 @@ export default function Question() {
       }} 
          color="text.secondary" 
          gutterBottom>
-        12.  What would you like to showcase on the app to promote your country's culture?
+        12.  How can the app show more videos you'll like?
        </Typography>
      
          <FormGroup>
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Traditional dance" name="qu12f1" onChange={handleChange}  label="Traditional dance" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox  sx={{ color: 'white' }}/>} value="Local music" name="qu12f2" onChange={handleChange} label="Local music" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Art and craft" name="qu12f3" onChange={handleChange} label="Local music"label="Art and craft" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox  sx={{ color: 'white' }}/>} value="Cuisine" name="qu12f4" onChange={handleChange} label="Cuisine" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Use AI to learn your preferences" name="qu12f1" onChange={handleChange}  label="Use AI to learn your preferences" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox  sx={{ color: 'white' }}/>} value="Ask you to select topics you like" name="qu12f2" onChange={handleChange} label="Ask you to select topics you like" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Show videos from creators you already follow" name="qu12f3" onChange={handleChange} label="Show videos from creators you already follow" />
+             <Typography sx={{color: 'white',}}>
+              Something else (tell us!)
+            </Typography>
         </FormGroup>   
+        <TextField
+            id="outlined-helperText"
+            label="Kindly Write it here"
+            multiline
+            rows={4}
+            name="qu12f4"
+            value={qu12f4}
+            onChange={handleChange}
+            sx={{
+              width: '100%',
+              marginTop: '3%',
+              border: '1px solid white',
+              color:'white'
+            }}
+          />
    </Box>
 
     <Box 
@@ -635,15 +707,31 @@ export default function Question() {
       }} 
          color="text.secondary" 
          gutterBottom>
-         13. How would you like to connect with global users?
+         13. Are there any missing features in the current Social Media App you are using?
        </Typography>
      
          <FormGroup>
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Language translation feature" name="qu13f1" onChange={handleChange} label="Language translation feature" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Hashtag challenges" name="qu13f2" onChange={handleChange} label="Hashtag challenges" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="irtual events" name="qu13f3" onChange={handleChange} label="Virtual events" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Cultural exchange programs" name="qu13f4" onChange={handleChange} label=" Cultural exchange programs" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Yes" name="qu13f1" onChange={handleChange} label="Yes" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="No (None>" name="qu13f2" onChange={handleChange} label="No" />
+            <Typography sx={{color: 'white',}}>
+              If Yes Tell us what they are?
+            </Typography>
         </FormGroup>   
+        <TextField
+            id="outlined-helperText"
+            label="Kindly Write it here"
+            multiline
+            rows={4}
+            name="qu13f3"
+            value={qu13f3}
+            onChange={handleChange}
+            sx={{
+              width: '100%',
+              marginTop: '3%',
+              border: '1px solid white',
+              color:'white'
+            }}
+          />
    </Box>
     <Box 
         sx={{
@@ -705,11 +793,55 @@ export default function Question() {
        </Typography>
      
          <FormGroup>
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="adges and rewards" name="qu14f3" onChange={handleChange} label="Badges and rewards" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Leaderboards" name="qu14f3" onChange={handleChange} label="Leaderboards" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Recognition from influencers" name="qu14f3" onChange={handleChange} label="Recognition from influencers" />
-            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Making a difference" name="qu14f3" onChange={handleChange} label="Making a difference" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Badges and rewards" name="qu15f3" onChange={handleChange} label="Badges and rewards" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Leaderboards" name="qu15f3" onChange={handleChange} label="Leaderboards" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}} control={<Checkbox sx={{ color: 'white' }} />} value="Recognition from influencers" name="qu15f3" onChange={handleChange} label="Recognition from influencers" />
+            <FormControlLabel sx={{color:'white', fontWeight:'bold'}}  control={<Checkbox  sx={{ color: 'white' }}/>} value="Making a difference" name="qu15f3" onChange={handleChange} label="Making a difference" />
         </FormGroup>   
+   </Box>
+
+    <Box 
+        sx={{
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          margin:'auto',
+          marginTop: '5%',
+          backgroundColor: 'transparent',
+          border: '1px solid black',
+          borderRadius: '5px',
+          padding: '10px'
+        }}
+        >
+       <Typography 
+        sx={{
+        fontSize: 20,
+        textAlign: 'center',
+        borderRadius: '5px',
+        fontWeight: 'bold',
+        color: 'black',
+        backgroundColor: 'white'
+      }} 
+         color="text.secondary" 
+         gutterBottom>
+        What other thing do you think Social Media App,s should improve on or include in there features?
+       </Typography>
+        
+       <TextField
+            id="outlined-helperText"
+            label="Kindly Write it here"
+            multiline
+            rows={4}
+            name="otherThoughts"
+            value={otherThoughts}
+            onChange={handleChange}
+            sx={{
+              width: '100%',
+              marginTop: '3%',
+              border: '1px solid white',
+              color:'white'
+            }}
+          />
+         
    </Box>
 
 
@@ -729,7 +861,7 @@ export default function Question() {
              marginTop: "2%"
           }}
         >
-          Continue
+           Continue
         </Button>
 
    </form>
