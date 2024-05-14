@@ -8,6 +8,9 @@ import Login from "./Login";
 import Questions from "./Questions";
 import Why from "./Why";
 import Contact from "./Contact";
+import Media from "./Media";
+import Sci from "./Sci";
+import Health from "./Health";
 
 export default function App() {
 
@@ -26,6 +29,9 @@ export default function App() {
             <Route path="/questions" element={<Questions/>} />
             <Route path="/why" element={<Why/>} />
             <Route path="/contact" element={<Contact/>} />
+            <Route path="/media" element={<Media/>} />
+            <Route path="/sci" element={<Sci/>} />
+            <Route path="/health" element={<Health/>} />
         </Routes>
       </Box>
     </Router>

@@ -86,7 +86,7 @@ export default function AboutUs() {
       >
       <Button
        component={Link}
-        to="/research" 
+        to="/about-us" 
       sx={{
         backgroundColor: 'none',
         color: 'white',

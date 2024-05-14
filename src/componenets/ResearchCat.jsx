@@ -71,6 +71,8 @@ export default function ResearchCat() {
        Media and Information
       </Typography>
       <Button
+       component={Link}
+       to="/media" 
       sx={{
         backgroundColor: 'none',
         border: '1px solid white',
@@ -112,6 +114,8 @@ export default function ResearchCat() {
        Science and Agriculture 
       </Typography>
       <Button
+       component={Link}
+       to="/sci" 
       sx={{
         backgroundColor: 'none',
         border: '1px solid white',
@@ -153,6 +157,8 @@ export default function ResearchCat() {
        Health
       </Typography>
       <Button
+      to="/health"
+    component={Link}
       sx={{
         backgroundColor: 'none',
         border: '1px solid white',

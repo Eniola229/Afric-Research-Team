@@ -65,7 +65,7 @@ export default function Sidenav() {
 </ListItem>
 
   <ListItem disablePadding>
-    <ListItemButton to="/questions" style={{ textDecoration: 'none', color: 'white', fontSize: '30px', display: 'inline-block', margin: '10px' }}>
+    <ListItemButton to="/login" style={{ textDecoration: 'none', color: 'white', fontSize: '30px', display: 'inline-block', margin: '10px' }}>
       <ListItemIcon>
         <InfoIcon />
       </ListItemIcon>
