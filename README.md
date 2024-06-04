@@ -1,1 +1,1 @@
-# Afric Research Team deals with collection of Statistical data from people on Diffrent issues and topic's
+# Afric Research Team deals with collection of Statistical data from people on Different issues and topic's
