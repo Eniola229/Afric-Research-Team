@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import logo from './img/AfricTv.png';
+// import logo from './img/AfricTv.png';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
@@ -106,11 +106,11 @@ export default function FirstPage() {
       }}
     >
      <TextField
-      sx={{ height: '8vh'}}
         id="outlined-basic"
         label="Enter your area to research"
         variant="outlined"
-        sx={{
+              sx={{
+          height:'8vh',
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
               borderColor: 'white',
