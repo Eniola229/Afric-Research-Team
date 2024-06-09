@@ -3,18 +3,18 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemButton from '@mui/material/ListItemButton';
-import { Link } from 'react-router-dom';
-import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Container } from '@mui/material';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemButton from '@mui/material/ListItemButton';
+// import { Link } from 'react-router-dom';
+// import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Container } from '@mui/material';
 import { auth, messaging } from '../Auth/Firebase';
 import { GoogleAuthProvider, signInWithPopup, sendEmailVerification, onAuthStateChanged, signOut} from 'firebase/auth';
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 import { useMediaQuery, useTheme } from '@mui/material';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import SideNav from './SideNav';
 import {useParams, useNavigate} from "react-router-dom";    
 
@@ -111,7 +111,7 @@ export default function Header() {
   return (
     <>
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ background: 'transparent', boxShadow: 'none', color: 'white' }}>
+      <AppBar position="fixed" sx={{ background: 'rgba(0,0,0,0.7)', boxShadow: 'none', color: 'white' }}>
         <Toolbar>
           
           <Typography  sx={{ flexGrow: 1, fontWeight: "bold", fontSize: isMobile ? '1.2rem': '1.7rem', }}>
